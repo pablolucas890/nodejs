@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const { uuid , isUuid} = require('uuidv4')
 const app = express();
 
+app.use(cors()); //permite que qualquer frontend que tenha acesso a rota possa se comunicar com o backend
 app.use(express.json()); //antes das rotas
 
 const projects = []; //simular banco de dados
