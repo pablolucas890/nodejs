@@ -159,3 +159,11 @@
             - receita para imagem
     - instalar o docker
         - https://www.notion.so/Instalando-Docker-6290d9994b0b4555a153576a1d97bee2#c7e37c6a26584d33b20cf332f2bdb31d
+    - docker run --name gostck_postgres -e POSTGRES_PASSWORD=password -p 5432:5432
+    - 6049200eb785d42532448523be0bf9425ce6d3bd6b2f3e89057d3754df960eda
+    - sudo docker ps
+    - quando reiniciar a maquina
+        - sudo docker ps -a
+        - sudo docker start id
+- debeaver
+    - sudo snap install dbeaver-ce
