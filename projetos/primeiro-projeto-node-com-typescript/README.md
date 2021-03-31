@@ -159,11 +159,101 @@
             - receita para imagem
     - instalar o docker
         - https://www.notion.so/Instalando-Docker-6290d9994b0b4555a153576a1d97bee2#c7e37c6a26584d33b20cf332f2bdb31d
-    - docker run --name gostck_postgres -e POSTGRES_PASSWORD=password -p 5432:5432
-    - 6049200eb785d42532448523be0bf9425ce6d3bd6b2f3e89057d3754df960eda
+    - sudo docker run --name gostack_postgres -e POSTGRES_PASSWORD=docker -e POSTGRES_USER=docker -p 5432:5432 -d postgres
+    - 0f9cff2fd5818d3501bb16fc74a73793e01bc41570d55a8db92df306176f4a77
+    - id: 0f9cff2fd581
     - sudo docker ps
     - quando reiniciar a maquina
         - sudo docker ps -a
         - sudo docker start id
 - debeaver
     - sudo snap install dbeaver-ce
+    - new connection
+    - PostgresSql
+    - muda a porta para a utilizada (5432 nesse caso)
+    - username coloca docker
+    - password igual a colocada anteriormente (docker nesse caso)
+    - em PostgreSql marcar show all database
+    - finish
+- yarn add typeorm pg
+- criar banco de dados no dbeaver em postgres
+- configurar typeorm (ormconfig.json) de acordo com o typo de banco de dados
+    ```text
+    {
+        "type": "postgres",
+        "host": "localhost",
+        "port": 5432,
+        "username": "docker",
+        "password": "docker",
+        "database": "gostack_gobarber",
+        "migrations": [
+            "./src/database/migrations/*.ts"
+        ],
+        "cli": {
+            "migrationsDir": "./src/database/migrations"
+        }
+
+    }
+    ```
+- configurar um script novo no packge.json
+    ```text
+    ,
+    "scripts": {
+        "build": "tsc",
+        "dev:server": "ts-node-dev --inspect transpile-only --ignore-watch node_modules src/server.ts",
+        "typeorm" : "ts-node-dev ./node_modules/typeorm/cli.js"
+    },
+    ```
+- yarn typeorm migration:create -n CreateApponitments
+- Migrations
+    - Linha do tempo
+        - 1a semana (tb_agendamento)
+        - 2a semana (tb_usuarios)
+        - (Novo dev) 3a semana (edição tb_agendamentos)
+        - 4a semana: compras
+    - ela funciona como um github, evitando o banco de dados fiquem em versoes sql
+    - criar migration em database/migrations/*.ts
+    - yarn typeorm migrations:run
+    - só se pode alterar um migration se ela nao foi enviada pro git, senao deve-se criar outramigration
+- no arquivo tsconfig.json
+    - descomentar
+        "expeimport { MigrationInterface, QueryRunner, Table } from 'typeorm';
+
+export default class CreateApponitments1617209165626 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    // oque eu quero que seja executado na criação do banco de dados
+    await queryRunner.createTable(
+      new Table({
+        name: 'appointments',
+        columns: [{
+          name: 'id',
+          type: 'varchar',
+          isPrimary: true,
+          generationStrategy: 'uuid',
+          default: 'uuid_generate_v4()',
+        },
+        {
+          name: 'provider',
+          type: 'varchar',
+          isNullable: false,
+        },
+        {
+          name: 'date',
+          type: 'timestamp with time zone',
+          isNullable: false,
+        },
+        ],
+      }),
+    );
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    // callback -> desfazer o método up
+    await queryRunner.dropTable('appointment');
+  }
+}
+rimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strictPropertyInitialization": false,
+- yarn add date-fns
+- yarn add reflect-metadata
