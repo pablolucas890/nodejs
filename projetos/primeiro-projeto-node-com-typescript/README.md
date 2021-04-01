@@ -204,7 +204,7 @@
         "typeorm" : "ts-node-dev ./node_modules/typeorm/cli.js"
     },
     ```
-- yarn typeorm migration:create -n CreateApponitments
+- yarn typeorm migration:create -n CreateAppointments
 - Migrations
     - Linha do tempo
         - 1a semana (tb_agendamento)

@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CreateAppointments1617219164399 implements MigrationInterface {
+export default class CreateAppointments1617306429223 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     // oque eu quero que seja executado na criação do banco de dados
     await queryRunner.createTable(
@@ -21,6 +21,18 @@ export default class CreateAppointments1617219164399 implements MigrationInterfa
         {
           name: 'date',
           type: 'timestamp with time zone',
+          isNullable: false,
+        },
+        {
+          name: 'cheated_at',
+          type: 'timestamp',
+          isUnique: true,
+          isNullable: false,
+        },
+        {
+          name: 'updated_at',
+          type: 'timestamp',
+          isUnique: true,
           isNullable: false,
         },
         ],

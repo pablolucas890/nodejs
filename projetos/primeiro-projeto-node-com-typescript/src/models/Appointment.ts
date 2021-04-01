@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('appointments')// decorator, associoa a classe Appointment à entidade appointment do database
 class Appointment {
@@ -10,6 +12,12 @@ class Appointment {
 
     @Column('timestamp with time zone')
     date: Date;// associoa a coluna date à coluna date do db
+
+    @CreateDateColumn()
+    created_at: Date;
+
+    @UpdateDateColumn()
+    update_at: Date;
 }
 
 export default Appointment;
