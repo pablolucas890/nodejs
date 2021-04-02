@@ -257,3 +257,5 @@ rimentalDecorators": true,
         "strictPropertyInitialization": false,
 - yarn add date-fns
 - yarn add reflect-metadata
+- yarn add bcryptjs
+- yarn add @types/bcryptjs

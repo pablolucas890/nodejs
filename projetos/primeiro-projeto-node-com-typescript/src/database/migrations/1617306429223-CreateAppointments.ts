@@ -8,7 +8,7 @@ export default class CreateAppointments1617306429223 implements MigrationInterfa
         name: 'appointments',
         columns: [{
           name: 'id',
-          type: 'varchar',
+          type: 'uuid',
           isPrimary: true,
           generationStrategy: 'uuid',
           default: 'uuid_generate_v4()',
@@ -21,19 +21,16 @@ export default class CreateAppointments1617306429223 implements MigrationInterfa
         {
           name: 'date',
           type: 'timestamp with time zone',
-          isNullable: false,
         },
         {
-          name: 'cheated_at',
+          name: 'created_at',
           type: 'timestamp',
-          isUnique: true,
-          isNullable: false,
+          default: 'now()',
         },
         {
           name: 'updated_at',
           type: 'timestamp',
-          isUnique: true,
-          isNullable: false,
+          default: 'now()',
         },
         ],
       }),
@@ -42,6 +39,6 @@ export default class CreateAppointments1617306429223 implements MigrationInterfa
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     // callback -> desfazer o método up
-    await queryRunner.dropTable('appointment');
+    await queryRunner.dropTable('appointments');
   }
 }
