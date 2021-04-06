@@ -14,7 +14,9 @@ usersRouter.post('/', async (request, response) => {
       email,
       password,
     });
-    user.password = 'You dont can to see this password';
+
+    delete user.password;
+
     return response.json(user);
   } catch (error) {
     return response.status(400).json({

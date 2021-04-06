@@ -259,3 +259,5 @@ rimentalDecorators": true,
 - yarn add reflect-metadata
 - yarn add bcryptjs
 - yarn add @types/bcryptjs
+- yarn add jsonwebtoken
+- yarn add -D @types/jsonwebtoken
