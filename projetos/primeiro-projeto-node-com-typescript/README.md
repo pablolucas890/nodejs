@@ -261,3 +261,5 @@ rimentalDecorators": true,
 - yarn add @types/bcryptjs
 - yarn add jsonwebtoken
 - yarn add -D @types/jsonwebtoken
+- yarn add multer
+- yarn add @types/multer
