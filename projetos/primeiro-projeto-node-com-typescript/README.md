@@ -263,3 +263,4 @@ rimentalDecorators": true,
 - yarn add -D @types/jsonwebtoken
 - yarn add multer
 - yarn add @types/multer
+- yarn add express-async-errors
