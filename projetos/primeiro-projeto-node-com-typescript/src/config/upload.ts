@@ -1,6 +1,15 @@
+/**
+ * Os Arquivos dentro da pasta config, são configurações
+ * de exportação de dados que geralmente são muito utili-
+ * - zados no projeto
+ *
+ * Neste caso, exporta-se um objeto com uma string da pasta tmp
+ * e um storage relacionado a imagem salva
+ *
+ */
+
 import multer from 'multer';
 import path from 'path';
-import crypto from 'crypto';
 
 const tmp_folder = path.resolve(__dirname, '..', '..', 'tmp');
 export default {

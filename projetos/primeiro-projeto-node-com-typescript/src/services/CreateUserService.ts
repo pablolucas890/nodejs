@@ -12,6 +12,9 @@ class CreateUserService {
   public async execute({ name, email, password }: Request): Promise<User> {
     const usersRepository = getRepository(User);
 
+    // Antes de criar um usuario é necessario que este service verifique se já
+    // existe um usuario com esse email
+
     const checkUsersExists = await usersRepository.findOne({
       where: {
         email,
@@ -21,6 +24,8 @@ class CreateUserService {
     if (checkUsersExists) {
       throw new AppError('Email address already used by another');
     }
+    // transforma a senha em um hash por motivos de segurança
+
     const hashedPassword = await hash(password, 8);
 
     const user = usersRepository.create({
@@ -28,6 +33,7 @@ class CreateUserService {
       email,
       password: hashedPassword,
     });
+    // salva
     await usersRepository.save(user);
     return user;
   }

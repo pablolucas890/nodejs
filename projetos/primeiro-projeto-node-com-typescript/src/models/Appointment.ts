@@ -1,3 +1,6 @@
+/**
+ * Modelo de Appointments (agendamentos, relaciona as entidades dos agendamentos com as do banco)
+ */
 import {
   Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn,
 } from 'typeorm';
