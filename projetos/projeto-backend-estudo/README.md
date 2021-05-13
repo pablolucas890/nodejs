@@ -1,3 +1,6 @@
+<img alt="gif" src="gif.gif">
+<hr>
+
 # Anotações de Estudo
 
 - Instalar o nvm para instalar o node em qualquer versão
