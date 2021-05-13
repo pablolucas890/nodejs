@@ -1,3 +1,6 @@
+<img alt="gif" src="gif.gif">
+<hr>
+
 # Anotações
 - yarn init -y
 - yarn add express
@@ -229,5 +232,3 @@
 - yarn add multer
 - yarn add @types/multer
 - yarn add express-async-errors
-<hr>
-<img alt="gif" src="gif.gif">
