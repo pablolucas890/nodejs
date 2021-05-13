@@ -32,4 +32,8 @@
 - Middleware
     - Interceptador de requisições que interrompe ou altera dados da requisição
     - função que recebe um requisição que envia uma resposta
+  
+<hr>
+<img alt="gif" src="gif.gif">
+
 - yarn add cors (//permite que qualquer frontend que tenha acesso a rota possa se comunicar com o backend)
