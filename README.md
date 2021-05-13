@@ -1,3 +1,5 @@
+<img alt="gif" src="gif.gif">
+<hr>
 <h1 align="center"> Node.js</h1>
 <h3 align="center">Repositório destinado ao estudo de Node.js</h3>
 
